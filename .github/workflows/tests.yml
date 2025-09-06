@@ -18,7 +18,7 @@ jobs:
           docker save selenium-tests -o selenium-tests.tar
 
       - name: 📦 Сохранение артефактов (docker image)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: selenium-tests
           path: selenium-tests.tar
@@ -28,10 +28,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: 📥 Загрузка docker image
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: selenium-tests
           path: .
@@ -43,7 +43,7 @@ jobs:
           docker run --rm -v ${{ github.workspace }}/allure-results:/allure-results selenium-tests
 
       - name: 📦 Сохранение артефактов (allure results)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: allure-results
@@ -53,10 +53,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: 📥 Загрузка allure results
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: allure-results
           path: allure-results
@@ -71,7 +71,7 @@ jobs:
           ./allure-2.27.0/bin/allure generate allure-results --clean -o public
 
       - name: 📦 Сохранение артефактов (отчет)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: public
@@ -86,7 +86,7 @@ jobs:
       id-token: write
 
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: allure-report
           path: public
