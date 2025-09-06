@@ -92,7 +92,7 @@ jobs:
           path: public
 
       - name: 📤 Публикация на GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
 
   deploy-pages:
     needs: deploy
