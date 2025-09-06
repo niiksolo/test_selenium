@@ -27,17 +27,7 @@ def test_login(driver,login, password):
         alert_text = page.get_alert_text()
         assert "invalid" in alert_text
 
-    #def test_login(driver):
-    # wait = WebDriverWait(driver, 10, 1)
-    # driver.get(URL)
-    # LOGIN = driver.find_element(*LOGIN_LOCATOR).send_keys('NikSolo')
-    #
-    # PASSWORD = driver.find_element(*PASS_LOCATOR)
-    # PASSWORD.send_keys('12345677')
-    #
-    # BUTTON = driver.find_element(*BUTTON_LOCATOR).click()
-    # ALERT = wait.until(EC.visibility_of_element_located(ALERT_LOCATOR))
-    # assert "invalid" in ALERT.text
+
 
 
     
