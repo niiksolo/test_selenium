@@ -93,6 +93,8 @@ jobs:
 
       - name: 📤 Публикация на GitHub Pages
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public  
 
   deploy-pages:
     needs: deploy
